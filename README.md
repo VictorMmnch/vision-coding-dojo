@@ -167,3 +167,15 @@ $ grails create-restful-controller mx.com.vswf.dojo.Comment
 ```
 
 ### Vamos a dar una vuelta con nuestra _bicla_ nuevecita (AKA correr la app y probarla).
+
+Podemos usar nuestro cliente favorito, por ejemplo, [POSTMAN](https://www.getpostman.com).
+
+Las imágenes se las debo, pero ahorita lo probamos!!
+
+<img width="1042" alt="petclinic-screenshot" src="https://www.ayokasystems.com/wp-content/uploads/grails-development-company.png">
+
+
+
+# Grailscias a todos! 
+
+
