@@ -86,3 +86,50 @@ Entonces, mi propuesta de modelo de dominio queda así:
 |commentBody|String|
 |dateCreated|	Date|
 |commentBy|User|
+
+Definamos nuestras relaciones:
+
+### User
+```
+tatic hasMany = [posts:Post, comments:Comment]
+```
+
+### Post
+```
+	static hasMany = [comments:Comment]
+
+	static belongsTo = [postedBy:User]
+```
+
+### Comment
+```
+	static belongsTo = [commentIn: Post]
+```
+
+Y ahora las restricciones | Constraints
+
+
+### User
+```
+static constraints = {
+   firstName blank:false
+   lastName blank:false
+   age nullable:false
+   email email:true
+}
+```
+
+### Post
+```
+static constraints = {
+   title blank:false, nullable:false
+   description blank:true, nullable:true
+}
+```
+
+### Comment
+```
+static constraints = {
+   body maxsize:8000
+}
+```
