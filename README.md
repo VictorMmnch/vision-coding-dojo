@@ -9,6 +9,7 @@ Grails
  - Robusto
  - Dinámico
  - Rápido
+ - **Poweroso**
 
 
 
