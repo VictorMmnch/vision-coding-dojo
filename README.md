@@ -52,17 +52,37 @@ con el siguiente commando **Grails** se deberá generar
 ```
 $ grails create-domain-class mx.com.vswf.dojo.User
 
-grails create-domain-class mx.com.vswf.dojo.Post
+$ grails create-domain-class mx.com.vswf.dojo.Post
 
-grails create-domain-class mx.com.vswf.dojo.Comment
+$ grails create-domain-class mx.com.vswf.dojo.Comment
 ```
 
 El proposito de la aplicación es proporcionar los servicios **REST** de un simple Foro en el cual hay usuarios y cada usuario puede realizar publicaciones (Post) y tambièn hacer comentarios sobre esas publicaciones, por lo tanto, un User tiene muchos Post, un post pertenece a un usuario y un usuario puede hacer comentarios sobre un post.
 
 Entonces, mi propuesta de modelo de dominio queda así:
 
+### User
+
+|Campo | Tipo  |
+|--------------------------|---|
+|firstName|String|
+|lastName|String|
+|age|Integer|
+|email|String|
+
+String firstName
+	String lastName
+	Integer age
+	String email
+
+### Post
+
 |Campo | Tipo  |
 |--------------------------|---|
 
 
+### Comment
+
+|Campo | Tipo  |
+|--------------------------|---|
 
