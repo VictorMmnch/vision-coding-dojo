@@ -39,7 +39,7 @@ Paquetes importantes para este dojo
 - domain
 - controller
 
-**Domains**
+### **Domains**
 
 Para generar nuestras clases de dominio, definieremos el siguiente paquete
 
@@ -47,7 +47,7 @@ Para generar nuestras clases de dominio, definieremos el siguiente paquete
 mx.com.vswf.dojo
 ```
 
-con el siguiente commando **Grails** se deberá generar 
+Debajo de éste, generaremos nuestras clases de dominio (Modelo de datos/Entitys) con los siguientes comandos (por separado):
 
 ```
 $ grails create-domain-class mx.com.vswf.dojo.User
@@ -60,6 +60,8 @@ $ grails create-domain-class mx.com.vswf.dojo.Comment
 El proposito de la aplicación es proporcionar los servicios **REST** de un simple Foro en el cual hay usuarios y cada usuario puede realizar publicaciones (Post) y tambièn hacer comentarios sobre esas publicaciones, por lo tanto, un User tiene muchos Post, un post pertenece a un usuario y un usuario puede hacer comentarios sobre un post.
 
 Entonces, mi propuesta de modelo de dominio queda así:
+
+
 
 ### User
 
@@ -87,14 +89,19 @@ Entonces, mi propuesta de modelo de dominio queda así:
 |dateCreated|	Date|
 |commentBy|User|
 
+
+
+
 Definamos nuestras relaciones:
 
 ### User
+
 ```
-tatic hasMany = [posts:Post, comments:Comment]
+	static hasMany = [posts:Post, comments:Comment]
 ```
 
 ### Post
+
 ```
 	static hasMany = [comments:Comment]
 
@@ -102,34 +109,61 @@ tatic hasMany = [posts:Post, comments:Comment]
 ```
 
 ### Comment
+
 ```
 	static belongsTo = [commentIn: Post]
 ```
+
+
 
 Y ahora las restricciones | Constraints
 
 
 ### User
+
 ```
-static constraints = {
-   firstName blank:false
-   lastName blank:false
-   age nullable:false
-   email email:true
-}
+	static constraints = {
+	   firstName blank:false
+	   lastName blank:false
+	   age nullable:false
+	   email email:true
+	}
 ```
 
 ### Post
+
 ```
-static constraints = {
-   title blank:false, nullable:false
-   description blank:true, nullable:true
-}
+	static constraints = {
+	   title blank:false, nullable:false
+	   description blank:true, nullable:true
+	}
 ```
 
 ### Comment
+
 ```
-static constraints = {
-   body maxsize:8000
-}
+	static constraints = {
+	   body maxsize:8000
+	}
 ```
+
+
+### **Controllers**
+
+#### Conversión sobre configuración
+
+Ya generamos nuestro modelo de datos, ahora vamos a generar nuestros **RestfullControllers**. 
+
+Para esto, necesitamos ejecutar los siguientes comandos (por separado):
+
+```
+
+$ grails create-restful-controller mx.com.vswf.dojo.User
+
+$ grails create-restful-controller mx.com.vswf.dojo.Post
+
+$ grails create-restful-controller mx.com.vswf.dojo.Comment
+
+```
+
+### Vamos a dar una vuelta con nuestra _bicla_ nuevecita (AKA correr la app y probarla).
