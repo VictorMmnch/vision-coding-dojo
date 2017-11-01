@@ -70,19 +70,19 @@ Entonces, mi propuesta de modelo de dominio queda así:
 |age|Integer|
 |email|String|
 
-String firstName
-	String lastName
-	Integer age
-	String email
 
 ### Post
 
 |Campo | Tipo  |
 |--------------------------|---|
-
+|title|String|
+|postBody|String|
+|dateCreated|Date|
 
 ### Comment
 
 |Campo | Tipo  |
 |--------------------------|---|
-
+|commentBody|String|
+|dateCreated|	Date|
+|commentBy|User|
